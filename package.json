@@ -20,11 +20,20 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.mjs"
+    ".": {
+      "types": {
+        "browser": "./dist/index.browser.d.mts",
+        "node": "./dist/index.node.d.mts",
+        "default": "./dist/index.node.d.mts"
+      },
+      "default": "./dist/index.node.mjs",
+      "browser": "./dist/index.browser.mjs",
+      "node": "./dist/index.node.mjs"
+    }
   },
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.mts",
+  "main": "./dist/index.node.mjs",
+  "module": "./dist/index.browser.mjs",
+  "types": "dist/index.node.d.mts",
   "files": [
     "dist"
   ],
@@ -50,6 +59,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.2.0",
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^22.13.4",
     "bumpp": "^10.0.3",
     "eslint": "^9.20.1",

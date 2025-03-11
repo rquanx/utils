@@ -2,7 +2,8 @@ import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
   entries: [
-    'src/index',
+    'src/index.node',
+    'src/index.browser',
   ],
   declaration: 'node16',
   clean: true,

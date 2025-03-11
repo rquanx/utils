@@ -4,7 +4,7 @@ import os from 'node:os'
 import { nanoid } from 'nanoid'
 import path from 'pathe'
 import { chromium } from 'playwright'
-import { sleep } from '../timer'
+import { sleep } from '../../cross/timer'
 import { chromeUserDir } from './chrome'
 
 export async function clearContext(context: BrowserContext, clearLocalStorage = true) {
