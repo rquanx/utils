@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid'
 import path from 'pathe'
 import { chromium } from 'playwright'
 import { sleep } from '../../cross/timer'
-import { chromeUserDir } from './chrome'
+import { chromeUserDir, isProfileOpened } from './chrome'
 
 export async function clearContext(context: BrowserContext, clearLocalStorage = true) {
   const pages = context.pages()
@@ -62,6 +62,9 @@ export class BrowserInstance {
   async createContext(options: { profileName?: string, headless?: boolean, proxy?: string }) {
     const { profileName, headless, proxy } = options
     if (profileName) {
+      if (isProfileOpened(profileName)) {
+        return undefined
+      }
       this.linkProfile(profileName)
       const context = await chromium.launchPersistentContext(this.tempDir!, {
         channel: 'chrome',
