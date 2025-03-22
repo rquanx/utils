@@ -5,6 +5,5 @@
 Opinionated collection of common JavaScript / TypeScript utils by [@rquanx](https://github.com/rquanx).
 
 - Tree-shakable ESM
-- Fully typed - with TSDocs
 
 inspired by [antfu/utils](https://github.com/antfu/utils)
